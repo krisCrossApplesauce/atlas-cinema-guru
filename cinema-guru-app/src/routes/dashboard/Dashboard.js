@@ -1,5 +1,6 @@
 import './dashboard.css';
 import Header from '../../components/navigation/Header.js';
+import SideBar from '../../components/navigation/SideBar.js';
 
 // Create src/routes/dashboard/Dashboard.js:
 //  - The file should import dashboard.css
@@ -16,6 +17,7 @@ const Dashboard = ({userUsername, setIsLoggedIn}) => {
   return (
     <div>
       <Header userUsername={userUsername} setIsLoggedIn={setIsLoggedIn} />
+      <SideBar />
     </div>
   );
 };
