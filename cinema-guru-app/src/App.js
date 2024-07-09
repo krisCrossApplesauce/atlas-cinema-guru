@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      {isLoggedIn === true ? null : <Authentication />}
+      {isLoggedIn === true ? <Dashboard /> : <Authentication />}
     </div>
   );
 }
