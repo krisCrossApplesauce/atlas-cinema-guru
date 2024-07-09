@@ -1,6 +1,7 @@
 import './auth.css';
 import Input from '../../components/general/Input.js'
 import Button from '../../components/general/Button.js';
+import { faUser, faKey, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 // Create src/routes/auth/Register.js:
 
@@ -19,9 +20,9 @@ const Register = ({username, password, setUsername, setPassword}) => {
   return (
     <div className="signOutContainer">
       <h2>Create new account</h2>
-      <Input label="Username:" type="text" className="usernameInput" value={username} setValue={setUsername} icon="fa-solid fa-user" />
-      <Input label="Password:" type="password" className="passwordInput" value={password} setValue={setPassword} icon="fa-solid fa-key" />
-      <Button type="submit" label="Sign Up" className="submitButton" onClick={() => {}} icon="fa-solid fa-plus" />
+      <Input label="Username:" type="text" className="usernameInput" value={username} setValue={setUsername} icon={faUser} />
+      <Input label="Password:" type="password" className="passwordInput" value={password} setValue={setPassword} icon={faKey} />
+      <Button type="submit" label="Sign Up" className="submitButton" onClick={() => {}} icon={faPlus} />
     </div>
   );
 };

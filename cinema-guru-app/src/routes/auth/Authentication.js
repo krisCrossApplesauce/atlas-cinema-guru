@@ -27,7 +27,7 @@ const Authentication = ({setIsLoggedIn, setUserUsername}) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("handleSubmit has been called: ", event);
-    // try {
+    try {
       const route = _switch ? 'http://localhost:8000/api/auth/login' : 'http://localhost:8000/api/auth/register';
       axios.post(route, {
         username,
@@ -39,9 +39,9 @@ const Authentication = ({setIsLoggedIn, setUserUsername}) => {
         setUserUsername(username);
         setIsLoggedIn(true);
       });
-    // } catch (err) {
-    //   console.log('error: ' + err);
-    // }
+    } catch (err) {
+      console.log('error: ' + err);
+    }
   };
 
   return (
