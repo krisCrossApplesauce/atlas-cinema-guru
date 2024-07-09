@@ -1,0 +1,11 @@
+input, select {
+    border-bottom: 2px solid #BB000E;
+}
+
+button {
+    background-color: #BB000E;
+}
+
+button:hover {
+    background-color: #E31C25;
+}

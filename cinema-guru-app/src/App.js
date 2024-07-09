@@ -1,10 +1,31 @@
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import Input from './components/general/Input.js';
 
 function App() {
+  const [isLoggedIn] = useState(false);
+  const [userUsername] = useState("");
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      fetch('/api/auth/', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+        }
+      })
+      .then(response => {
+        if (accessToken) {
+          isLoggedIn = true;
+          userUsername = response.data.username;
+        }
+      });
+    }
+  });
+
   return (
     <div className="App">
-      <Input label="label" type="text" className="class" value="value" setValue={() => { return "poopy"; }}></Input>
+      {isLoggedIn === true ? <Dashboard /> : <Authentication />}
     </div>
   );
 }
