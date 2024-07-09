@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import Authentication from './routes/auth/Authentication';
 
 function App() {
-  const [isLoggedIn] = useState(false);
-  const [userUsername] = useState("");
+  let [isLoggedIn] = useState(false);
+  let [userUsername] = useState("");
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      {isLoggedIn === true ? <Dashboard /> : <Authentication />}
+      {isLoggedIn === true ? null : <Authentication />}
     </div>
   );
 }

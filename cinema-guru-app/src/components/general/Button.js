@@ -18,14 +18,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Button = ({label, className, onClick, icon}) => {
   return (
-    <>
-      <label>{label}</label>
-      <button
-      className={className}
-      onClick={onClick}>
-        {icon && <FontAwesomeIcon icon={icon} />}
-      </button>
-    </>
+    <button
+    className={className}
+    onClick={onClick}>
+      {icon && <FontAwesomeIcon icon={icon} />}
+      {label}
+    </button>
   );
 };
 

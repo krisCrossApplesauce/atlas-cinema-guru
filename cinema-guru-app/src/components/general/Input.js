@@ -26,15 +26,13 @@ const Input = ({label, type, className, value, setValue, icon, inputAttributes})
 
   return (
     <>
-      <label>{label}</label>
+      <label>{icon && <FontAwesomeIcon icon={icon} />}{label}</label>
       <input
       type={type}
       className={className}
       value={value}
       onChange={handleInput}
-      {...inputAttributes}>
-        {icon && <FontAwesomeIcon icon={icon} />}
-      </input>
+      {...inputAttributes} />
     </>
   );
 };

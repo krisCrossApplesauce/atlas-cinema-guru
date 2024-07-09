@@ -1,0 +1,34 @@
+.Authentication {
+    margin: auto;
+    width: 50%;
+    height: 100%;
+    background-color: grey;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonsContainer button {
+    width: 100%;
+    margin: 0px;
+}
+
+.buttonsContainer button:active {
+    background-color: #E31C25;
+}
+
+h2 {
+    padding: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0px;
+}

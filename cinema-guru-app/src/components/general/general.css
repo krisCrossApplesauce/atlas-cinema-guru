@@ -1,9 +1,15 @@
 input, select {
+    border: none;
     border-bottom: 2px solid #BB000E;
+    margin: 5px;
 }
 
 button {
     background-color: #BB000E;
+    color: white;
+    border: none;
+    padding: 5px;
+    margin: 5px;
 }
 
 button:hover {
