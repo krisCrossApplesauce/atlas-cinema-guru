@@ -16,9 +16,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //      the button text.
 //  - Bind the button onClick event with the onClick function passed from the props.
 
-const Button = ({label, className, onClick, icon}) => {
+const Button = ({type, label, className, onClick, icon}) => {
   return (
     <button
+    type={type}
     className={className}
     onClick={onClick}>
       {icon && <FontAwesomeIcon icon={icon} />}

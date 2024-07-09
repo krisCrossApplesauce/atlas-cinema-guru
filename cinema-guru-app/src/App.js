@@ -1,32 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Authentication from './routes/auth/Authentication';
+import axios from 'axios';
 
 function App() {
-  let [isLoggedIn] = useState(false);
-  let [userUsername] = useState("");
+  let [isLoggedIn, setIsLoggedIn] = useState(false);
+  let [userUsername, setUserUsername] = useState("");
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
-      fetch('/api/auth/', {
-        method: 'POST',
+      axios.post('http://localhost:8000/api/auth/', {}, {
         headers: {
-          'Authorization': `Bearer ${accessToken}`,
+          Authorization: `Bearer ${accessToken}`,
         }
       })
-      .then(response => {
-        if (accessToken) {
-          isLoggedIn = true;
-          userUsername = response.data.username;
-        }
+      .then((response) => {
+          setIsLoggedIn(true);
+          setUserUsername(response.data.username);
       });
     }
-  });
+  }, []);
 
   return (
     <div className="App">
-      {isLoggedIn === true ? <Dashboard /> : <Authentication />}
+      {isLoggedIn === true ? null : <Authentication setIsLoggedIn={setIsLoggedIn} setUserUsername={setUserUsername} />}
     </div>
   );
 }

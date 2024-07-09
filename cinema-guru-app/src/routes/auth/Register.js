@@ -17,12 +17,12 @@ import Button from '../../components/general/Button.js';
 
 const Register = ({username, password, setUsername, setPassword}) => {
   return (
-    <form>
+    <div className="signOutContainer">
       <h2>Create new account</h2>
       <Input label="Username:" type="text" className="usernameInput" value={username} setValue={setUsername} icon="fa-solid fa-user" />
       <Input label="Password:" type="password" className="passwordInput" value={password} setValue={setPassword} icon="fa-solid fa-key" />
-      <Button label="Sign Up" className="submitButton" onClick={() => {}} icon="fa-solid fa-plus" />
-    </form>
+      <Button type="submit" label="Sign Up" className="submitButton" onClick={() => {}} icon="fa-solid fa-plus" />
+    </div>
   );
 };
 
