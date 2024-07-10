@@ -8,9 +8,20 @@ import "./components.css";
 
 
 const Activity = ({activity}) => {
+  const date = new Date(activity.createdAt);
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  const m = months[date.getMonth()];
+  const d = date.getDate();
+  const y = date.getFullYear();
+
+  const formattedDate = `${m} ${d}, ${y}`;
+
   return (
     <li>
-      <p>{activity}</p>
+      <p><span>{activity.user.username}</span> added <span>{activity.title.title}</span> to {activity.activityType} - <span className="date">{formattedDate}</span></p>
     </li>
   );
 };

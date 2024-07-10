@@ -47,8 +47,8 @@ const Authentication = ({setIsLoggedIn, setUserUsername}) => {
   return (
     <form className="Authentication" onSubmit={handleSubmit}>
       <div className="buttonsContainer">
-        <Button type="button" label="Sign In" className="signIn" onClick={() => { set_switch(true); }} />
-        <Button type="button" label="Sign Up" className="signUp" onClick={() => { set_switch(false); }} />
+        <Button type="button" label="Sign In" className={`signIn ${_switch}`} onClick={() => { set_switch(true); }} />
+        <Button type="button" label="Sign Up" className={`signUp ${_switch}`} onClick={() => { set_switch(false); }} />
       </div>
       { _switch === true ?
       <Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} /> 

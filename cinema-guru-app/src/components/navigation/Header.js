@@ -1,6 +1,7 @@
 import "./navigation.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import Button from '../general/Button.js';
 
 // Create src/components/navigation/Header.js:
 //  - The file should import navigation.css
@@ -24,10 +25,13 @@ const Header = ({userUsername, setIsLoggedIn}) => {
   };
 
   return (
-    <nav>
-      <img src="https://picsum.photos/100/100"></img>
-      <p>Welcome {userUsername}! :D</p>
-      <span onClick={logout}><FontAwesomeIcon icon={faRightFromBracket} />logout</span>
+    <nav className="headerNav">
+      <p>Cinema Guru</p>
+      <div>
+        <img src="https://picsum.photos/100/100"></img>
+        <p>Welcome {userUsername}!</p>
+        <span><Button type="button" label="logout" className="logoutButton" onClick={logout} icon={faRightFromBracket} /></span>
+      </div>
     </nav>
   );
 };

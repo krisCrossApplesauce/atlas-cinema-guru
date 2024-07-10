@@ -18,10 +18,14 @@ import { faUser, faKey, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Register = ({username, password, setUsername, setPassword}) => {
   return (
-    <div className="signOutContainer">
-      <h2>Create new account</h2>
-      <Input label="Username:" type="text" className="usernameInput" value={username} setValue={setUsername} icon={faUser} />
-      <Input label="Password:" type="password" className="passwordInput" value={password} setValue={setPassword} icon={faKey} />
+    <div className="signUpContainer">
+      <h3>Create new account</h3>
+      <div className="inputContainer">
+        <Input label="Username:" type="text" className="usernameInput" value={username} setValue={setUsername} icon={faUser} />
+      </div>
+      <div className="inputContainer">
+        <Input label="Password:" type="password" className="passwordInput" value={password} setValue={setPassword} icon={faKey} />
+      </div>
       <Button type="submit" label="Sign Up" className="submitButton" onClick={() => {}} icon={faPlus} />
     </div>
   );

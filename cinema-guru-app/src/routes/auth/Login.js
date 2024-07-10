@@ -18,9 +18,13 @@ import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
 const Login = ({username, password, setUsername, setPassword}) => {
   return (
     <div className="signInContainer">
-      <h2>Sign in with your account</h2>
-      <Input label="Username:" type="text" className="usernameInput" value={username} setValue={setUsername} icon={faUser} />
-      <Input label="Password:" type="password" className="passwordInput" value={password} setValue={setPassword} icon={faKey} />
+      <h3>Sign in with your account</h3>
+      <div className="inputContainer">
+        <Input label="Username:" type="text" className="usernameInput" value={username} setValue={setUsername} icon={faUser} />
+      </div>
+      <div className="inputContainer">
+        <Input label="Password:" type="password" className="passwordInput" value={password} setValue={setPassword} icon={faKey} />
+      </div>
       <Button type="submit" label="Sign In" className="submitButton" onClick={() => {}} icon={faKey} />
     </div>
   );

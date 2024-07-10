@@ -4,6 +4,21 @@ input, select {
     margin: 5px;
 }
 
+input {
+    outline-style: none;
+}
+
+.inputContainer {
+    margin: auto;
+    text-align: left;
+    padding-left: 13px;
+}
+.inputContainer input {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 button {
     background-color: #BB000E;
     color: white;
@@ -14,4 +29,8 @@ button {
 
 button:hover {
     background-color: #E31C25;
+}
+
+.icon {
+    padding-right: 5px;
 }

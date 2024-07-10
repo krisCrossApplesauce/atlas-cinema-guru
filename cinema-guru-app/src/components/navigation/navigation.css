@@ -1,0 +1,88 @@
+/* HEADER */
+.headerNav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #161616;
+    color: white;
+    height: 40px;
+    padding: 8px 48px 5px;
+}
+
+.headerNav div {
+    display: flex;
+}
+
+.headerNav img {
+    height: 80%;
+    border-radius: 100px;
+    border: 3px solid #BB000E;
+    margin-right: 4px;
+}
+
+.logoutButton {
+    background-color: #161616;
+    color: #BB000E;
+    margin-left: 0;
+    margin-right: 0;
+}
+.logoutButton:hover {
+    background-color: #161616;
+}
+
+
+
+
+/* SIDE BAR */
+.sideBarNav {
+    position: fixed;
+    height: 100vh;
+    width: 200px;
+    background-color: #BB000E;
+    color: white;
+    text-align: right;
+}
+
+.sideBarNav.small {
+    width: auto;
+}
+
+.sideBarNav ul {
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+}
+
+.sideBarButton {
+    margin: none;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    font-size: 0.9em;
+    text-align: left;
+    /* font-weight: bold; */
+}
+/* .sideBarNav.small .sideBarButton { padding: 10px 15px; } */
+
+.sideBarNav .icon { padding-right: 10px; font-size: 1.2em; }
+.sideBarNav.small .icon { padding-right: 3px; }
+
+.activitiesContainer {
+    background-color: #222;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 15px;
+}
+
+.activitiesContainer Button {
+    background-color: #222;
+    width: Calc(100% - 10px);
+
+    text-decoration: underline;
+    font-size: 1.4em;
+    /* font-weight: bold; */
+    text-align: center;
+
+    margin-bottom: 0px;
+    margin-top: 0px;
+}

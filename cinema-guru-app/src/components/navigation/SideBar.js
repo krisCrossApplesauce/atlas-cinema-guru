@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse, faStar, faClock, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import "./navigation.css";
 import Activity from '../Activity';
+import Button from '../general/Button.js';
 
 // Create src/components/navigation/SideBar.js:
 //  - The file should import navigation.css
@@ -39,47 +42,42 @@ const SideBar = () => {
 
   const navigate = useNavigate();
 
-  const setPage = ({ pageName }) => {
+  const setPage = (pageName) => {
     setSelected(pageName);
-    switch (pageName) {
-      case "Home":
-        navigate('/home');
-      case "Favorites":
-        navigate('/favorites');
-      case "Watch Later":
-        navigate('/watchlater');
-      default:
-        navigate('/home');
-    }
+    navigate(`/${pageName}`);
   };
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
-      axios.get('http://localhost:8000/api/activity/', {
+      axios.get('http://localhost:8000/api/activity', {
         headers: {
           'Authorization': `Bearer ${accessToken}`
         }
       })
       .then((response) => {
-        setActivities(response.data);
+        setActivities(response.data.slice(0, 10));
       });
     }
   }, []);
 
   return (
-    <nav>
+    <nav className={small ? "sideBarNav small" : "sideBarNav"} onMouseEnter={() => {setSmall(false)}} onMouseLeave={() => {setSmall(true)}}>
       <ul className="NavigationUL">
-        <li onClick={() => {setPage("Home")}}>Home</li>
-        <li onClick={() => {setPage("Favorites")}}>Favorites</li>
-        <li onClick={() => {setPage("Watch Later")}}>Watch Later</li>
+        <li><Button type="button" label={small ? "" : "Home"} className="homeButton sideBarButton" onClick={() => { setPage("home"); setSmall(true); }} icon={faHouse} /></li>
+        <li><Button type="button" label={small ? "" : "Favorites"} className="favoritesButton sideBarButton" onClick={() => { setPage("favorites"); setSmall(true); }} icon={faStar} /></li>
+        <li><Button type="button" label={small ? "" : "Watch Later"} className="watchLaterButton sideBarButton" onClick={() => { setPage("watchLater"); setSmall(true); }} icon={faClock} /></li>
       </ul>
-      <ul className="ActivityUL">
-        { activities.slice(0,10).map((activity) => (
-            <Activity activity={activity} />
-          ))
-        }
-      </ul>
+      { !small &&
+        <div className="activitiesContainer">
+          <Button type="button" label="Latest Activities" className="activityButton" onClick={() => { setShowActivities(!showActivities); console.log(showActivities); }}/>
+          <ul className="ActivityUL">
+            { showActivities &&
+              activities.map((activity) => (<Activity activity={activity} />))
+            }
+          </ul>
+        </div>
+      }
     </nav>
   );
 };

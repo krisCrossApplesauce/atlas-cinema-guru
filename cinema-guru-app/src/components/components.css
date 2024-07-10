@@ -1,0 +1,14 @@
+p {
+    font-size: 1em;
+    margin: 5px;
+    text-align: left;
+}
+
+span {
+    color: #E31C25;
+}
+
+span.date {
+    color: white;
+    font-style: italic;
+}

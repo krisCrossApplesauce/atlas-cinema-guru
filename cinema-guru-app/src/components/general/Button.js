@@ -22,7 +22,7 @@ const Button = ({type, label, className, onClick, icon}) => {
     type={type}
     className={className}
     onClick={onClick}>
-      {icon && <FontAwesomeIcon icon={icon} />}
+      {icon && <FontAwesomeIcon icon={icon} className="icon" />}
       {label}
     </button>
   );
